@@ -1,9 +1,8 @@
-package by.bsuir.et.model;
+package by.bsuir.et.model.beans;
 
 import java.util.Date;
 
 public class Event {
-    private String id;
     private String name;
     private String address;
     private Date date;
@@ -11,19 +10,19 @@ public class Event {
     public Event() {
     }
 
-    public Event(String id, String name, String address, Date date) {
-        this.id = id;
+    public Event(String name, String address, Date date) {
         this.name = name;
         this.address = address;
         this.date = date;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "Event{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", date=" + date +
+                '}';
     }
 
     public String getName() {

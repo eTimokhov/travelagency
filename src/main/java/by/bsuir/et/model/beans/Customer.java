@@ -1,26 +1,40 @@
-package by.bsuir.et.model;
+package by.bsuir.et.model.beans;
+
+import java.util.List;
 
 public class Customer {
 
     private String id;
 
     private String firstName;
-    private String middleName;
     private String lastName;
 
     private String address;
     private String phoneNumber;
 
+    private List<Tour> tours;
+
     public Customer() {
     }
 
-    public Customer(String id, String firstName, String middleName, String lastName, String address, String phoneNumber) {
-        this.id = id;
+    public Customer(String firstName, String lastName, String address, String phoneNumber, List<Tour> tours) {
         this.firstName = firstName;
-        this.middleName = middleName;
         this.lastName = lastName;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.tours = tours;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", tours=" + tours +
+                '}';
     }
 
     public String getId() {
@@ -37,14 +51,6 @@ public class Customer {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
     }
 
     public String getLastName() {
@@ -69,5 +75,13 @@ public class Customer {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public List<Tour> getTours() {
+        return tours;
+    }
+
+    public void setTours(List<Tour> tours) {
+        this.tours = tours;
     }
 }

@@ -1,11 +1,10 @@
-package by.bsuir.et.model;
+package by.bsuir.et.model.beans;
 
 import java.util.Date;
 import java.util.List;
 
-public class Tour {
-    private String id;
 
+public class Tour {
     private double price;
     private String country;
     private Date startDate;
@@ -14,13 +13,13 @@ public class Tour {
     private Hotel hotel;
     private Flight outboundFlight;
     private Flight returnFlight;
+
     private List<Event> events;
 
     public Tour() {
     }
 
-    public Tour(String id, double price, String country, Date startDate, Date endDate, int personAmount, Hotel hotel, Flight outboundFlight, Flight returnFlight, List<Event> events) {
-        this.id = id;
+    public Tour(double price, String country, Date startDate, Date endDate, int personAmount, Hotel hotel, Flight outboundFlight, Flight returnFlight, List<Event> events) {
         this.price = price;
         this.country = country;
         this.startDate = startDate;
@@ -32,12 +31,19 @@ public class Tour {
         this.events = events;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "Tour{" +
+                "price=" + price +
+                ", country='" + country + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", personAmount=" + personAmount +
+                ", hotel=" + hotel +
+                ", outboundFlight=" + outboundFlight +
+                ", returnFlight=" + returnFlight +
+                ", events=" + events +
+                '}';
     }
 
     public double getPrice() {

@@ -1,10 +1,8 @@
-package by.bsuir.et.model;
+package by.bsuir.et.model.beans;
 
 import java.util.Date;
 
 public class Flight {
-    private String id;
-
     private FlightClass flightClass;
     private int seats;
     private Date departureTime;
@@ -15,8 +13,7 @@ public class Flight {
     public Flight() {
     }
 
-    public Flight(String id, FlightClass flightClass, int seats, Date departureTime, Date arrivalTime, String departureAirport, String arrivalAirport) {
-        this.id = id;
+    public Flight(FlightClass flightClass, int seats, Date departureTime, Date arrivalTime, String departureAirport, String arrivalAirport) {
         this.flightClass = flightClass;
         this.seats = seats;
         this.departureTime = departureTime;
@@ -25,12 +22,16 @@ public class Flight {
         this.arrivalAirport = arrivalAirport;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "flightClass=" + flightClass +
+                ", seats=" + seats +
+                ", departureTime=" + departureTime +
+                ", arrivalTime=" + arrivalTime +
+                ", departureAirport='" + departureAirport + '\'' +
+                ", arrivalAirport='" + arrivalAirport + '\'' +
+                '}';
     }
 
     public FlightClass getFlightClass() {

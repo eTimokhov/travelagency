@@ -1,15 +1,12 @@
-package by.bsuir.et.model;
+package by.bsuir.et.model.beans;
 
 public class Hotel {
-
-    private String id;
 
     private String name;
     private String country;
     private String address;
 
-    public Hotel(String id, String name, String country, String address) {
-        this.id = id;
+    public Hotel(String name, String country, String address) {
         this.name = name;
         this.country = country;
         this.address = address;
@@ -18,12 +15,13 @@ public class Hotel {
     public Hotel() {
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 
     public String getName() {
