@@ -7,6 +7,7 @@ import java.util.List;
 public interface CustomerController {
     Customer getCustomer(String id);
     List<Customer> getCustomersList();
+    List<Customer> getSortedCustomersList();
     void saveCustomer(Customer customer);
     boolean deleteCustomer(String id);
 }

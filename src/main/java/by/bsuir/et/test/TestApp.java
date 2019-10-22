@@ -13,7 +13,7 @@ public class TestApp {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Choose operation: [create, read, update, delete, exit]");
+        System.out.println("Choose operation: [create, read, update, delete, readAll, readAllSorted exit]");
         String input = scanner.nextLine();
         while (!input.equalsIgnoreCase("exit")) {
             switch (input) {
@@ -28,6 +28,12 @@ public class TestApp {
                     break;
                 case "delete":
                     crudOperations.delete();
+                    break;
+                case "readAll":
+                    crudOperations.readAll();
+                    break;
+                case "readAllSorted":
+                    crudOperations.readAllSorted();
                     break;
                 default:
                     System.out.println("Please, enter a valid operation name: ");

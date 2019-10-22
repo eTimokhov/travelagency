@@ -5,6 +5,7 @@ import by.bsuir.et.model.beans.Customer;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CustomerCRUDOperations {
@@ -59,6 +60,20 @@ public class CustomerCRUDOperations {
         customer.setPhoneNumber(readNewPropertyValueOrReturnOldOne("Phone number", customer.getPhoneNumber()));
         controller.saveCustomer(customer);
         System.out.println("Customer " + customer.getId() + " updated successfully.");
+    }
+
+    public void readAll() {
+        List<Customer> customers = controller.getCustomersList();
+        for (Customer customer : customers) {
+            System.out.println(customer);
+        }
+    }
+
+    public void readAllSorted() {
+        List<Customer> customers = controller.getSortedCustomersList();
+        for (Customer customer : customers) {
+            System.out.println(customer);
+        }
     }
 
     private String readNewPropertyValueOrReturnOldOne(String propertyName, String propertyValue) {

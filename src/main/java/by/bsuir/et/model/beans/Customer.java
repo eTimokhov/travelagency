@@ -1,8 +1,10 @@
 package by.bsuir.et.model.beans;
 
+import java.io.Serializable;
+import java.util.Comparator;
 import java.util.List;
 
-public class Customer {
+public class Customer implements Serializable, Comparable<Customer> {
 
     private String id;
 
@@ -13,6 +15,8 @@ public class Customer {
     private String phoneNumber;
 
     private List<Tour> tours;
+
+    private Comparator<Customer> customerComparator = getComparator();
 
     public Customer() {
     }
@@ -36,6 +40,9 @@ public class Customer {
                 ", tours=" + tours +
                 '}';
     }
+
+
+
 
     public String getId() {
         return id;
@@ -83,5 +90,16 @@ public class Customer {
 
     public void setTours(List<Tour> tours) {
         this.tours = tours;
+    }
+
+    @Override
+    public int compareTo(Customer that) {
+        return customerComparator.compare(this, that);
+    }
+
+    private static Comparator<Customer> getComparator() {
+        return Comparator.comparing(Customer::getFirstName)
+                .thenComparing(Customer::getLastName)
+                .thenComparing(Customer::getAddress);
     }
 }

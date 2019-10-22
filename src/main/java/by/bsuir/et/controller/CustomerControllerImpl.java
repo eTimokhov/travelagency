@@ -4,6 +4,7 @@ import by.bsuir.et.model.beans.Customer;
 import by.bsuir.et.model.dao.CustomerDao;
 import by.bsuir.et.model.xmldao.XmlCustomerDao;
 
+import java.util.Collections;
 import java.util.List;
 
 public class CustomerControllerImpl implements CustomerController {
@@ -23,6 +24,13 @@ public class CustomerControllerImpl implements CustomerController {
     @Override
     public List<Customer> getCustomersList() {
         return customerDao.getCustomersList();
+    }
+
+    @Override
+    public List<Customer> getSortedCustomersList() {
+        List<Customer> customers = getCustomersList();
+        Collections.sort(customers);
+        return customers;
     }
 
     @Override
