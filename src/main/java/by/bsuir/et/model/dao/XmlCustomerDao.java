@@ -1,7 +1,6 @@
-package by.bsuir.et.model.xmldao;
+package by.bsuir.et.model.dao;
 
 import by.bsuir.et.model.beans.Customer;
-import by.bsuir.et.model.dao.CustomerDao;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -19,8 +18,6 @@ public class XmlCustomerDao implements CustomerDao {
     private Marshaller jaxbMarshaller;
     private Unmarshaller jaxbUnmarshaller;
     private File dataFile;
-
-    private static final String DATA_FILE_PATH = "C:\\Users\\Evgeny\\IdeaProjects\\travelagency\\src\\main\\java\\by\\bsuir\\et\\model\\xmldao\\data.xml";
 
     private CustomersList customersList;
 

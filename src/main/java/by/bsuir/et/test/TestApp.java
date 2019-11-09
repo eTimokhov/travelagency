@@ -1,14 +1,14 @@
 package by.bsuir.et.test;
 
-import by.bsuir.et.controller.CustomerController;
-import by.bsuir.et.controller.CustomerControllerImpl;
+import by.bsuir.et.service.CustomerService;
+import by.bsuir.et.service.CustomerServiceImpl;
 
 import javax.xml.bind.JAXBException;
 import java.util.Scanner;
 
 public class TestApp {
     public static void main(String[] args) throws JAXBException {
-        CustomerController controller = new CustomerControllerImpl();
+        CustomerService controller = new CustomerServiceImpl();
         CustomerCRUDOperations crudOperations = new CustomerCRUDOperations(controller);
 
         Scanner scanner = new Scanner(System.in);

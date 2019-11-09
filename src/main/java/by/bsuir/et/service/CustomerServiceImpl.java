@@ -1,18 +1,19 @@
-package by.bsuir.et.controller;
+package by.bsuir.et.service;
 
 import by.bsuir.et.model.beans.Customer;
 import by.bsuir.et.model.dao.CustomerDao;
-import by.bsuir.et.model.xmldao.XmlCustomerDao;
+import by.bsuir.et.model.dao.XmlCustomerDao;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-public class CustomerControllerImpl implements CustomerController {
+public class CustomerServiceImpl implements CustomerService {
     private CustomerDao customerDao;
     //hardcoded path
-    private static final String DATA_FILE_PATH = "C:\\Users\\Evgeny\\IdeaProjects\\travelagency\\src\\main\\java\\by\\bsuir\\et\\model\\xmldao\\data.xml";
+    private static final String DATA_FILE_PATH = "C:\\Users\\Evgeny\\IdeaProjects\\travelagency\\data.xml";
 
-    public CustomerControllerImpl() {
+    public CustomerServiceImpl() {
         customerDao = new XmlCustomerDao(DATA_FILE_PATH);
     }
 
@@ -30,6 +31,13 @@ public class CustomerControllerImpl implements CustomerController {
     public List<Customer> getSortedCustomersList() {
         List<Customer> customers = getCustomersList();
         Collections.sort(customers);
+        return customers;
+    }
+
+    @Override
+    public List<Customer> getSortedCustomersList(Comparator<Customer> comparator) {
+        List<Customer> customers = getCustomersList();
+        customers.sort(comparator);
         return customers;
     }
 

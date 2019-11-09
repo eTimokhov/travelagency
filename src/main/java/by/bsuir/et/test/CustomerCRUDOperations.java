@@ -1,22 +1,30 @@
 package by.bsuir.et.test;
 
-import by.bsuir.et.controller.CustomerController;
+import by.bsuir.et.service.CustomerService;
 import by.bsuir.et.model.beans.Customer;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Class with simple operations with customers
+ */
 public class CustomerCRUDOperations {
-    private CustomerController controller;
+    private CustomerService controller;
     private Scanner scanner;
 
-    public CustomerCRUDOperations(CustomerController controller) {
+    /**
+     * @param controller
+     */
+    public CustomerCRUDOperations(CustomerService controller) {
         this.controller = controller;
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * deleting customer process
+     */
     public void delete() {
         String customerId = readNotEmptyString("Customer id");
         boolean removed = controller.deleteCustomer(customerId);
@@ -27,6 +35,9 @@ public class CustomerCRUDOperations {
         }
     }
 
+    /**
+     * output customer to console
+     */
     public void read() {
         String customerId = readNotEmptyString("Customer id");
         Customer customer = controller.getCustomer(customerId);
@@ -37,6 +48,9 @@ public class CustomerCRUDOperations {
         }
     }
 
+    /**
+     * creating customer process
+     */
     public void create() {
         String firstName = readNotEmptyString("First name");
         String lastName = readNotEmptyString("Last name");
@@ -47,6 +61,9 @@ public class CustomerCRUDOperations {
         System.out.println("Customer " + customer.getId() + " added successfully.");
     }
 
+    /**
+     * updating customer process
+     */
     public void update() {
         String customerId = readNotEmptyString("Customer id");
         Customer customer = controller.getCustomer(customerId);
@@ -62,6 +79,9 @@ public class CustomerCRUDOperations {
         System.out.println("Customer " + customer.getId() + " updated successfully.");
     }
 
+    /**
+     * outputs all customers
+     */
     public void readAll() {
         List<Customer> customers = controller.getCustomersList();
         for (Customer customer : customers) {
@@ -69,6 +89,9 @@ public class CustomerCRUDOperations {
         }
     }
 
+    /**
+     * outputs all customers sorted by first name, last name, address
+     */
     public void readAllSorted() {
         List<Customer> customers = controller.getSortedCustomersList();
         for (Customer customer : customers) {
@@ -76,6 +99,11 @@ public class CustomerCRUDOperations {
         }
     }
 
+    /**
+     * @param propertyName  name of property
+     * @param propertyValue value of property
+     * @return new string or old value is string wasn't read
+     */
     private String readNewPropertyValueOrReturnOldOne(String propertyName, String propertyValue) {
         System.out.println(propertyName + ": " + propertyValue);
         System.out.println("Enter new " + propertyName + " if you want to change current value, else press Enter:");
@@ -85,7 +113,11 @@ public class CustomerCRUDOperations {
         }
         return propertyValue;
     }
-    
+
+    /**
+     * @param propertyName name of property to ask user to input it
+     * @return read string
+     */
     private String readNotEmptyString(String propertyName) {
         System.out.println(propertyName + ": ");
         String result = scanner.nextLine();
