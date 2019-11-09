@@ -1,4 +1,4 @@
-package by.bsuir.et.test;
+package by.bsuir.et.controller;
 
 import by.bsuir.et.model.beans.*;
 

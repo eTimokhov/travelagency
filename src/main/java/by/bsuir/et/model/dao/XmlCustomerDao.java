@@ -139,10 +139,9 @@ public class XmlCustomerDao implements CustomerDao {
         }
     }
 
-    @XmlRootElement
+    @XmlRootElement(name = "customers")
     @XmlAccessorType(XmlAccessType.FIELD)
     private static class CustomersList {
-        @XmlElementWrapper(name = "customers")
         @XmlElement(name = "customer")
         private List<Customer> customers;
 

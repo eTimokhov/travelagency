@@ -1,9 +1,14 @@
 package by.bsuir.et.model.beans;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Customer implements Serializable, Comparable<Customer> {
 
     private String id;
@@ -14,9 +19,11 @@ public class Customer implements Serializable, Comparable<Customer> {
     private String address;
     private String phoneNumber;
 
+    @XmlElementWrapper(name = "tours")
+    @XmlElement(name = "tour")
     private List<Tour> tours;
 
-    private Comparator<Customer> customerComparator = getComparator();
+    private static Comparator<Customer> customerComparator = getComparator();
 
     public Customer() {
     }
