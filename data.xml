@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<agency>
+    <customers>
+        <customer id="1">
+            <firstName>Jodie</firstName>
+            <lastName>Jordan</lastName>
+            <address>2674 Quitzon Creek Parkerfort, CT 72714</address>
+            <phoneNumber>077 2654 3599</phoneNumber>
+            <tours>
+                <tour id="1">
+                    <price>1000.0</price>
+                    <country>Egypt</country>
+                    <startDate>2019-10-07T00:00:00+03:00</startDate>
+                    <endDate>2019-10-21T00:00:00+03:00</endDate>
+                    <personAmount>1</personAmount>
+                    <hotel id="1">
+                        <name>Royal Paradise Resort</name>
+                        <country>Egypt</country>
+                        <address>Sharm Al Shiekh, South Sinai Governorate</address>
+                    </hotel>
+                    <outboundFlight id="1">
+                        <flightClass>ECONOMY</flightClass>
+                        <seats>1</seats>
+                        <departureTime>2019-10-07T16:00:00+03:00</departureTime>
+                        <arrivalTime>2019-10-07T22:00:00+03:00</arrivalTime>
+                        <departureAirport>Minsk National Airport</departureAirport>
+                        <arrivalAirport>Sharm El Sheikh International Airport</arrivalAirport>
+                    </outboundFlight>
+                    <returnFlight id="2">
+                        <flightClass>ECONOMY</flightClass>
+                        <seats>1</seats>
+                        <departureTime>2019-10-21T12:00:00+03:00</departureTime>
+                        <arrivalTime>2019-10-21T20:00:00+03:00</arrivalTime>
+                        <departureAirport>Sharm El Sheikh International Airport</departureAirport>
+                        <arrivalAirport>Minsk National Airport</arrivalAirport>
+                    </returnFlight>
+                    <hot>true</hot>
+                    <events>
+                        <event id="1">
+                            <name>Party</name>
+                            <address>Qesm Sharm Ash Sheikh, South Sinai Governorate</address>
+                            <date>2019-10-09T15:30:00+03:00</date>
+                        </event>
+                        <event id="2">
+                            <name>Excursion</name>
+                            <address>
+                                1 Four Seasons Boulevard, Sharm El Sheikh, South Sinai Governorate
+                            </address>
+                            <date>2019-10-14T08:30:00+03:00</date>
+                        </event>
+                    </events>
+                </tour>
+            </tours>
+        </customer>
+        <customer id="2">
+            <firstName>Dalia</firstName>
+            <lastName>Shamoun</lastName>
+            <address>Nasr City, P.O. Box: 3611</address>
+            <phoneNumber>20106671188</phoneNumber>
+            <tours>
+                <tour id="2">
+                    <price>700.0</price>
+                    <country>Egypt</country>
+                    <startDate>2019-11-07T00:00:00+03:00</startDate>
+                    <endDate>2019-10-25T00:00:00+03:00</endDate>
+                    <personAmount>1</personAmount>
+                    <hotel id="2">
+                        <name>Le Méridien Heliopolis</name>
+                        <country>Egypt</country>
+                        <address>Ard Elgolf; Nasr City; 12421 Cairo, Nasr</address>
+                    </hotel>
+                    <outboundFlight id="3">
+                        <flightClass>BUSINESS</flightClass>
+                        <seats>1</seats>
+                        <departureTime>2019-11-07T16:00:00+03:00</departureTime>
+                        <arrivalTime>2019-11-07T22:00:00+03:00</arrivalTime>
+                        <departureAirport>Minsk National Airport</departureAirport>
+                        <arrivalAirport>Cairo International Airport (CAI)</arrivalAirport>
+                    </outboundFlight>
+                    <returnFlight id="4">
+                        <flightClass>ECONOMY</flightClass>
+                        <seats>1</seats>
+                        <departureTime>2019-10-21T12:00:00+03:00</departureTime>
+                        <arrivalTime>2019-11-21T20:00:00+03:00</arrivalTime>
+                        <departureAirport>Cairo International Airport (CAI)</departureAirport>
+                        <arrivalAirport>Minsk National Airport</arrivalAirport>
+                    </returnFlight>
+                    <hot>false</hot>
+                    <events>
+                        <event id="3">
+                            <name>Party</name>
+                            <address>74 Abd El Salam Aref St., SABA PASHA</address>
+                            <date>2019-11-09T15:30:00+03:00</date>
+                        </event>
+                    </events>
+                </tour>
+            </tours>
+        </customer>
+        <customer id="3">
+            <firstName>Marian</firstName>
+            <lastName>Rollins</lastName>
+            <address>4548 Wilkinson Court, Fort Myers, FL</address>
+            <phoneNumber>239-557-3494</phoneNumber>
+            <tours>
+                <tour id="5">
+                    <price>1200.0</price>
+                    <country>United Arab Emirates</country>
+                    <startDate>2019-11-07T00:00:00+03:00</startDate>
+                    <endDate>2019-12-25T00:00:00+03:00</endDate>
+                    <personAmount>1</personAmount>
+                    <hotel id="4">
+                        <name>Rove At The Park</name>
+                        <country>United Arab Emirates</country>
+                        <address>
+                            Dubai Parks and Resorts Across the road from The Outlet Village
+                        </address>
+                    </hotel>
+                    <outboundFlight id="6">
+                        <flightClass>BUSINESS</flightClass>
+                        <seats>1</seats>
+                        <departureTime>2019-12-07T16:00:00+03:00</departureTime>
+                        <arrivalTime>2019-12-07T22:00:00+03:00</arrivalTime>
+                        <departureAirport>Minsk National Airport</departureAirport>
+                        <arrivalAirport>Dubai International Airport</arrivalAirport>
+                    </outboundFlight>
+                    <returnFlight id="10">
+                        <flightClass>ECONOMY</flightClass>
+                        <seats>1</seats>
+                        <departureTime>2019-12-21T12:00:00+03:00</departureTime>
+                        <arrivalTime>2019-12-21T20:00:00+03:00</arrivalTime>
+                        <departureAirport>Dubai International Airport</departureAirport>
+                        <arrivalAirport>Minsk National Airport</arrivalAirport>
+                    </returnFlight>
+                    <hot>false</hot>
+                    <events>
+                        <event id="5">
+                            <name>Party</name>
+                            <address>
+                                Mohamed Bin Khalifa Street, Opp. The International School of Choueifat، Mushrif Area
+                            </address>
+                            <date>2019-12-09T15:30:00+03:00</date>
+                        </event>
+                    </events>
+                </tour>
+                <tour id="3">
+                    <price>1200.0</price>
+                    <country>Turkey</country>
+                    <startDate>2020-11-07T00:00:00+03:00</startDate>
+                    <endDate>2020-12-25T00:00:00+03:00</endDate>
+                    <personAmount>1</personAmount>
+                    <hotel id="5">
+                        <name>Stella Hotel</name>
+                        <country>Turkey</country>
+                        <address>Çamyuva, Turizm Blv., 07980 Kemer/Antalya</address>
+                    </hotel>
+                    <outboundFlight id="7">
+                        <flightClass>ECONOMY</flightClass>
+                        <seats>1</seats>
+                        <departureTime>2020-12-07T16:00:00+03:00</departureTime>
+                        <arrivalTime>2020-12-07T22:00:00+03:00</arrivalTime>
+                        <departureAirport>Minsk National Airport</departureAirport>
+                        <arrivalAirport>Antalya Airport</arrivalAirport>
+                    </outboundFlight>
+                    <returnFlight id="8">
+                        <flightClass>ECONOMY</flightClass>
+                        <seats>1</seats>
+                        <departureTime>2020-12-21T12:00:00+03:00</departureTime>
+                        <arrivalTime>2020-12-21T20:00:00+03:00</arrivalTime>
+                        <departureAirport>Antalya Airport</departureAirport>
+                        <arrivalAirport>Minsk National Airport</arrivalAirport>
+                    </returnFlight>
+                    <hot>true</hot>
+                    <events>
+                        <event id="7">
+                            <name>Meal</name>
+                            <address>
+                                Tahıl Pazarı Mh, Şht. Binbaşı Cengiz Toytunç Cd., 07040 Muratpaşa/Antalya
+                            </address>
+                            <date>2020-12-09T15:30:00+03:00</date>
+                        </event>
+                    </events>
+                </tour>
+            </tours>
+        </customer>
+    </customers>
+</agency>

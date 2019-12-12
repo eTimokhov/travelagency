@@ -1,9 +1,6 @@
 package by.bsuir.et.model.beans;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
@@ -11,7 +8,8 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Customer implements Serializable, Comparable<Customer> {
 
-    private String id;
+    @XmlAttribute
+    private int id;
 
     private String firstName;
     private String lastName;
@@ -51,11 +49,11 @@ public class Customer implements Serializable, Comparable<Customer> {
 
 
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

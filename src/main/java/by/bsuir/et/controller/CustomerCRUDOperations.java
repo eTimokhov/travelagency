@@ -26,7 +26,7 @@ public class CustomerCRUDOperations {
      * deleting customer process
      */
     public void delete() {
-        String customerId = readNotEmptyString("Customer id");
+        int customerId = readInt("Customer id");
         boolean removed = controller.deleteCustomer(customerId);
         if (removed) {
             System.out.println("Customer " + customerId + " removed successfully");
@@ -39,7 +39,7 @@ public class CustomerCRUDOperations {
      * output customer to console
      */
     public void read() {
-        String customerId = readNotEmptyString("Customer id");
+        int customerId = readInt("Customer id");
         Customer customer = controller.getCustomer(customerId);
         if (customer != null) {
             System.out.println(customer);
@@ -65,7 +65,7 @@ public class CustomerCRUDOperations {
      * updating customer process
      */
     public void update() {
-        String customerId = readNotEmptyString("Customer id");
+        int customerId = readInt("Customer id");
         Customer customer = controller.getCustomer(customerId);
         if (customer == null) {
             System.out.println("Customer with id " + customerId + " not found.");
@@ -112,6 +112,12 @@ public class CustomerCRUDOperations {
             return result;
         }
         return propertyValue;
+    }
+
+
+    private int readInt(String propertyName) throws NumberFormatException{
+        String valueStr = readNotEmptyString(propertyName);
+        return Integer.parseInt(valueStr);
     }
 
     /**

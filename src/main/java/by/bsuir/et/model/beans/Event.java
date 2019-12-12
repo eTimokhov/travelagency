@@ -1,8 +1,18 @@
 package by.bsuir.et.model.beans;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Event {
+
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Event implements Serializable {
+
+    @XmlAttribute
+    private int id;
+
     private String name;
     private String address;
     private Date date;
@@ -19,10 +29,19 @@ public class Event {
     @Override
     public String toString() {
         return "Event{" +
-                "name='" + name + '\'' +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", date=" + date +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -1,13 +1,35 @@
 package by.bsuir.et.controller;
 
+import by.bsuir.et.migration.saver.CustomerSaver;
+import by.bsuir.et.migration.DatabaseException;
+import by.bsuir.et.migration.JdbcService;
+import by.bsuir.et.model.beans.Customer;
 import by.bsuir.et.service.CustomerService;
 import by.bsuir.et.service.CustomerServiceImpl;
+import org.xml.sax.SAXException;
 
+import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBException;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class TestApp {
     public static void main(String[] args) throws JAXBException {
+        //System.out.println(validateXml());
+        //userInput();
+        migrate();
+    }
+
+    private static void userInput() {
         CustomerService controller = new CustomerServiceImpl();
         CustomerCRUDOperations crudOperations = new CustomerCRUDOperations(controller);
 
@@ -43,6 +65,44 @@ public class TestApp {
         }
     }
 
+    private static boolean validateXml() {
+        SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        try {
+            Schema schema = schemaFactory.newSchema(new File("C:/Users/Evgeny/IdeaProjects/travelagency/data.xsd"));
 
+            Validator validator = schema.newValidator();
+            validator.validate(new StreamSource(new File("C:/Users/Evgeny/IdeaProjects/travelagency/data.xml")));
+            return true;
+        } catch (SAXException | IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
+    private static String getResource(String filename) throws FileNotFoundException {
+        URL resource = TestApp.class.getClassLoader().getResource(filename);
+        Objects.requireNonNull(resource);
+
+        return resource.getFile();
+    }
+
+    private static void migrate() {
+        if (!validateXml()) {
+            System.err.println("Cannot migrate: Xml is not valid.");
+            return;
+        }
+        CustomerService customerService = new CustomerServiceImpl();
+        JdbcService jdbcService = JdbcService.getInstance();
+        List<Customer> customers = customerService.getCustomersList();
+        try {
+            jdbcService.init();
+            CustomerSaver customerSaver = CustomerSaver.getInstance();
+            for (Customer customer : customers) {
+                customerSaver.save(customer);
+            }
+        } catch (DatabaseException e) {
+            System.err.println("Cannot migrate:");
+            e.printStackTrace();
+        }
+    }
 }

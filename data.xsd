@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="agency">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="customers">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="customer" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element name="firstName" type="xs:string"/>
+                                        <xs:element name="lastName" type="xs:string"/>
+                                        <xs:element name="address" type="xs:string"/>
+                                        <xs:element name="phoneNumber" type="xs:string"/>
+                                        <xs:element name="tours">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="tour" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:all>
+                                                                <xs:element name="price" type="xs:double"/>
+                                                                <xs:element name="country" type="xs:string"/>
+                                                                <xs:element name="startDate" type="xs:dateTime"/>
+                                                                <xs:element name="endDate" type="xs:dateTime"/>
+                                                                <xs:element name="personAmount" type="xs:int"/>
+                                                                <xs:element name="hot" type="xs:boolean"/>
+                                                                <xs:element name="hotel">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element name="name" type="xs:string"/>
+                                                                            <xs:element name="country" type="xs:string"/>
+                                                                            <xs:element name="address" type="xs:string"/>
+                                                                        </xs:all>
+                                                                        <xs:attribute name="id" type="ID" use="required"/>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="events">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="event" maxOccurs="unbounded">
+                                                                                <xs:complexType>
+                                                                                    <xs:all>
+                                                                                        <xs:element name="name" type="xs:string"/>
+                                                                                        <xs:element name="address"
+                                                                                                    type="xs:string"/>
+                                                                                        <xs:element name="date" type="xs:dateTime"/>
+                                                                                    </xs:all>
+                                                                                    <xs:attribute name="id" type="ID" use="required"/>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="outboundFlight" type="flight"/>
+                                                                <xs:element name="returnFlight" type="flight"/>
+                                                            </xs:all>
+                                                            <xs:attribute name="id" type="ID" use="required"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:all>
+                                    <xs:attribute name="id" type="ID" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="flight">
+        <xs:all>
+            <xs:element name="flightClass">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="ECONOMY"/>
+                        <xs:enumeration value="BUSINESS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="seats" type="xs:int"/>
+            <xs:element name="departureTime" type="xs:dateTime"/>
+            <xs:element name="arrivalTime" type="xs:dateTime"/>
+            <xs:element name="departureAirport" type="xs:string"/>
+            <xs:element name="arrivalAirport" type="xs:string"/>
+        </xs:all>
+        <xs:attribute name="id" type="ID" use="required"/>
+    </xs:complexType>
+    <xs:simpleType name="ID" id="ID">
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+</xs:schema>

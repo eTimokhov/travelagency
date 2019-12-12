@@ -6,10 +6,10 @@ import java.util.Comparator;
 import java.util.List;
 
 public interface CustomerService {
-    Customer getCustomer(String id);
+    Customer getCustomer(int id);
     List<Customer> getCustomersList();
     List<Customer> getSortedCustomersList();
     List<Customer> getSortedCustomersList(Comparator<Customer> comparator);
     void saveCustomer(Customer customer);
-    boolean deleteCustomer(String id);
+    boolean deleteCustomer(int id);
 }

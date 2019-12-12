@@ -1,25 +1,40 @@
 package by.bsuir.et.model.beans;
 
+import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Tour implements Serializable {
+    @XmlAttribute
+    private int id;
 
-public class Tour {
     private double price;
     private String country;
     private Date startDate;
     private Date endDate;
     private int personAmount;
+
+    @XmlElement(name = "hotel")
     private Hotel hotel;
+
+    @XmlElement(name = "outboundFlight")
     private Flight outboundFlight;
+
+    @XmlElement(name = "returnFlight")
     private Flight returnFlight;
 
+    private boolean hot;
+
+    @XmlElementWrapper(name = "events")
+    @XmlElement(name = "event")
     private List<Event> events;
 
     public Tour() {
     }
 
-    public Tour(double price, String country, Date startDate, Date endDate, int personAmount, Hotel hotel, Flight outboundFlight, Flight returnFlight, List<Event> events) {
+    public Tour(double price, String country, Date startDate, Date endDate, int personAmount, Hotel hotel, Flight outboundFlight, Flight returnFlight, boolean hot, List<Event> events) {
         this.price = price;
         this.country = country;
         this.startDate = startDate;
@@ -28,13 +43,15 @@ public class Tour {
         this.hotel = hotel;
         this.outboundFlight = outboundFlight;
         this.returnFlight = returnFlight;
+        this.hot = hot;
         this.events = events;
     }
 
     @Override
     public String toString() {
         return "Tour{" +
-                "price=" + price +
+                "id='" + id + '\'' +
+                ", price=" + price +
                 ", country='" + country + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
@@ -42,6 +59,7 @@ public class Tour {
                 ", hotel=" + hotel +
                 ", outboundFlight=" + outboundFlight +
                 ", returnFlight=" + returnFlight +
+                ", hot=" + hot +
                 ", events=" + events +
                 '}';
     }
@@ -116,5 +134,21 @@ public class Tour {
 
     public void setEvents(List<Event> events) {
         this.events = events;
+    }
+
+    public boolean isHot() {
+        return hot;
+    }
+
+    public void setHot(boolean hot) {
+        this.hot = hot;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

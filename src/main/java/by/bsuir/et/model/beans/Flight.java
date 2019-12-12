@@ -1,8 +1,16 @@
 package by.bsuir.et.model.beans;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Flight {
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Flight implements Serializable {
+    @XmlAttribute
+    private int id;
+
     private FlightClass flightClass;
     private int seats;
     private Date departureTime;
@@ -25,7 +33,8 @@ public class Flight {
     @Override
     public String toString() {
         return "Flight{" +
-                "flightClass=" + flightClass +
+                "id='" + id + '\'' +
+                ", flightClass=" + flightClass +
                 ", seats=" + seats +
                 ", departureTime=" + departureTime +
                 ", arrivalTime=" + arrivalTime +
@@ -84,5 +93,13 @@ public class Flight {
 
     public enum FlightClass {
         ECONOMY, BUSINESS
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

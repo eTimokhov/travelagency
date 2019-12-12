@@ -1,6 +1,14 @@
 package by.bsuir.et.model.beans;
 
-public class Hotel {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import java.io.Serializable;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Hotel implements Serializable {
+    @XmlAttribute
+    private int id;
 
     private String name;
     private String country;
@@ -18,7 +26,8 @@ public class Hotel {
     @Override
     public String toString() {
         return "Hotel{" +
-                "name='" + name + '\'' +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", country='" + country + '\'' +
                 ", address='" + address + '\'' +
                 '}';
@@ -46,5 +55,13 @@ public class Hotel {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
