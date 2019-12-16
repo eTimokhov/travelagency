@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Customer implements Serializable, Comparable<Customer> {
@@ -106,5 +107,23 @@ public class Customer implements Serializable, Comparable<Customer> {
         return Comparator.comparing(Customer::getFirstName)
                 .thenComparing(Customer::getLastName)
                 .thenComparing(Customer::getAddress);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return id == customer.id &&
+                Objects.equals(firstName, customer.firstName) &&
+                Objects.equals(lastName, customer.lastName) &&
+                Objects.equals(address, customer.address) &&
+                Objects.equals(phoneNumber, customer.phoneNumber) &&
+                Objects.equals(tours, customer.tours);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, address, phoneNumber, tours);
     }
 }

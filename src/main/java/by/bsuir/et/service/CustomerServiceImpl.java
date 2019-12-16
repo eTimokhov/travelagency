@@ -11,7 +11,7 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
     private AgencyDao agencyDao;
     //hardcoded path
-    private static final String DATA_FILE_PATH = "C:\\Users\\Evgeny\\IdeaProjects\\travelagency\\data.xml";
+    private static final String DATA_FILE_PATH = "src/main/resources/data.xml";
 
     public CustomerServiceImpl() {
         agencyDao = new XmlAgencyDao(DATA_FILE_PATH);

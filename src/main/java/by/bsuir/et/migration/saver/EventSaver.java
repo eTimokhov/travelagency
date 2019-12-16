@@ -34,8 +34,7 @@ public class EventSaver extends EntitySaver {
             ");";
 
     public void save(Event event, Tour tour) throws DatabaseException {
-        try {
-            PreparedStatement preparedStatement = jdbcService.getConnection().prepareStatement(INSERT_QUERY);
+        try (PreparedStatement preparedStatement = jdbcService.getConnection().prepareStatement(INSERT_QUERY)) {
             preparedStatement.setInt(1, event.getId());
             preparedStatement.setInt(2, tour.getId());
             preparedStatement.setString(3, event.getName());

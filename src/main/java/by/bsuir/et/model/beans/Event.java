@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -66,5 +67,21 @@ public class Event implements Serializable {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Event event = (Event) o;
+        return id == event.id &&
+                Objects.equals(name, event.name) &&
+                Objects.equals(address, event.address) &&
+                Objects.equals(date, event.date);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address, date);
     }
 }

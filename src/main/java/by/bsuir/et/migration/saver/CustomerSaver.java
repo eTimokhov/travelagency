@@ -33,8 +33,7 @@ public class CustomerSaver extends EntitySaver {
             ");";
 
     public void save(Customer customer) throws DatabaseException {
-        try {
-            PreparedStatement preparedStatement = jdbcService.getConnection().prepareStatement(INSERT_QUERY);
+        try (PreparedStatement preparedStatement = jdbcService.getConnection().prepareStatement(INSERT_QUERY)) {
             preparedStatement.setInt(1, customer.getId());
             preparedStatement.setString(2, customer.getFirstName());
             preparedStatement.setString(3, customer.getLastName());

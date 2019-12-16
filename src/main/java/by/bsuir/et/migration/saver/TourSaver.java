@@ -46,8 +46,7 @@ public class TourSaver extends EntitySaver {
             ");";
 
     public void save(Tour tour, Customer customer) throws DatabaseException {
-        try {
-            PreparedStatement preparedStatement = jdbcService.getConnection().prepareStatement(INSERT_QUERY);
+        try (PreparedStatement preparedStatement = jdbcService.getConnection().prepareStatement(INSERT_QUERY)) {
             preparedStatement.setInt(1, tour.getId());
             preparedStatement.setInt(2, customer.getId());
             preparedStatement.setInt(3, tour.getHotel().getId());

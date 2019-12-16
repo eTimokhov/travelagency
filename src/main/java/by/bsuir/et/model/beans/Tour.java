@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Tour implements Serializable {
@@ -150,5 +151,28 @@ public class Tour implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tour tour = (Tour) o;
+        return id == tour.id &&
+                Double.compare(tour.price, price) == 0 &&
+                personAmount == tour.personAmount &&
+                hot == tour.hot &&
+                Objects.equals(country, tour.country) &&
+                Objects.equals(startDate, tour.startDate) &&
+                Objects.equals(endDate, tour.endDate) &&
+                Objects.equals(hotel, tour.hotel) &&
+                Objects.equals(outboundFlight, tour.outboundFlight) &&
+                Objects.equals(returnFlight, tour.returnFlight) &&
+                Objects.equals(events, tour.events);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, price, country, startDate, endDate, personAmount, hotel, outboundFlight, returnFlight, hot, events);
     }
 }

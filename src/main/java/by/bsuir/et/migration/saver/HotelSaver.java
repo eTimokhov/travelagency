@@ -32,8 +32,7 @@ public class HotelSaver extends EntitySaver {
             ");";
 
     public void save(Hotel hotel) throws DatabaseException {
-        try {
-            PreparedStatement preparedStatement = jdbcService.getConnection().prepareStatement(INSERT_QUERY);
+        try (PreparedStatement preparedStatement = jdbcService.getConnection().prepareStatement(INSERT_QUERY)) {
             preparedStatement.setInt(1, hotel.getId());
             preparedStatement.setString(2, hotel.getName());
             preparedStatement.setString(3, hotel.getCountry());

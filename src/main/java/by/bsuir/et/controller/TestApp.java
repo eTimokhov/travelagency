@@ -68,10 +68,10 @@ public class TestApp {
     private static boolean validateXml() {
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         try {
-            Schema schema = schemaFactory.newSchema(new File("C:/Users/Evgeny/IdeaProjects/travelagency/data.xsd"));
+            Schema schema = schemaFactory.newSchema(new File("src/main/resources/data.xsd"));
 
             Validator validator = schema.newValidator();
-            validator.validate(new StreamSource(new File("C:/Users/Evgeny/IdeaProjects/travelagency/data.xml")));
+            validator.validate(new StreamSource(new File("src/main/resources/data.xml")));
             return true;
         } catch (SAXException | IOException e) {
             e.printStackTrace();

@@ -37,8 +37,7 @@ public class FlightSaver extends EntitySaver {
             ");";
 
     public void save(Flight flight) throws DatabaseException {
-        try {
-            PreparedStatement preparedStatement = jdbcService.getConnection().prepareStatement(INSERT_QUERY);
+        try (PreparedStatement preparedStatement = jdbcService.getConnection().prepareStatement(INSERT_QUERY)) {
             preparedStatement.setInt(1, flight.getId());
             preparedStatement.setString(2, flight.getFlightClass().name());
             preparedStatement.setInt(3, flight.getSeats());

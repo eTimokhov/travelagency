@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Flight implements Serializable {
@@ -101,5 +102,24 @@ public class Flight implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flight flight = (Flight) o;
+        return id == flight.id &&
+                seats == flight.seats &&
+                flightClass == flight.flightClass &&
+                Objects.equals(departureTime, flight.departureTime) &&
+                Objects.equals(arrivalTime, flight.arrivalTime) &&
+                Objects.equals(departureAirport, flight.departureAirport) &&
+                Objects.equals(arrivalAirport, flight.arrivalAirport);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, flightClass, seats, departureTime, arrivalTime, departureAirport, arrivalAirport);
     }
 }
