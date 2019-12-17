@@ -1,6 +1,6 @@
-package by.bsuir.et.controller;
+package by.bsuir.et.controller.console;
 
-import by.bsuir.et.service.CustomerService;
+import by.bsuir.et.service.AgencyService;
 import by.bsuir.et.model.beans.Customer;
 
 import java.util.ArrayList;
@@ -11,13 +11,13 @@ import java.util.Scanner;
  * Class with simple operations with customers
  */
 public class CustomerCRUDOperations {
-    private CustomerService controller;
+    private AgencyService controller;
     private Scanner scanner;
 
     /**
      * @param controller
      */
-    public CustomerCRUDOperations(CustomerService controller) {
+    public CustomerCRUDOperations(AgencyService controller) {
         this.controller = controller;
         scanner = new Scanner(System.in);
     }

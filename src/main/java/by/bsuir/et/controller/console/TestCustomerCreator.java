@@ -1,4 +1,4 @@
-package by.bsuir.et.controller;
+package by.bsuir.et.controller.console;
 
 import by.bsuir.et.model.beans.*;
 

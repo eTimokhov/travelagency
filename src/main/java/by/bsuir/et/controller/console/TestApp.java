@@ -1,11 +1,11 @@
-package by.bsuir.et.controller;
+package by.bsuir.et.controller.console;
 
 import by.bsuir.et.migration.saver.CustomerSaver;
 import by.bsuir.et.migration.DatabaseException;
 import by.bsuir.et.migration.JdbcService;
 import by.bsuir.et.model.beans.Customer;
-import by.bsuir.et.service.CustomerService;
-import by.bsuir.et.service.CustomerServiceImpl;
+import by.bsuir.et.service.AgencyService;
+import by.bsuir.et.service.AgencyServiceImpl;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -30,7 +30,7 @@ public class TestApp {
     }
 
     private static void userInput() {
-        CustomerService controller = new CustomerServiceImpl();
+        AgencyService controller = new AgencyServiceImpl();
         CustomerCRUDOperations crudOperations = new CustomerCRUDOperations(controller);
 
         Scanner scanner = new Scanner(System.in);
@@ -91,9 +91,9 @@ public class TestApp {
             System.err.println("Cannot migrate: Xml is not valid.");
             return;
         }
-        CustomerService customerService = new CustomerServiceImpl();
+        AgencyService agencyService = new AgencyServiceImpl();
         JdbcService jdbcService = JdbcService.getInstance();
-        List<Customer> customers = customerService.getCustomersList();
+        List<Customer> customers = agencyService.getCustomersList();
         try {
             jdbcService.init();
             CustomerSaver customerSaver = CustomerSaver.getInstance();
